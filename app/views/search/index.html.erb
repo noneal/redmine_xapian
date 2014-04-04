@@ -10,6 +10,8 @@
 <label><%= check_box_tag 'all_words', 1, @all_words %> <%= l(:label_all_words) %></label>
 <%= hidden_field_tag 'titles_only', '', :id => nil %>
 <label><%= check_box_tag 'titles_only', 1, @titles_only %> <%= l(:label_search_titles_only) %></label>
+<%= hidden_field_tag 'per_page', '', :id => nil %>
+<label><%= check_box_tag 'per_page', 1, @per_page %> <%= l(:label_per_page) %></label>
 </p>
 <p>
 <% @object_types.each do |t| %>
