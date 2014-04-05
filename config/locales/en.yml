@@ -45,3 +45,4 @@ en:
         multi_page_html: "Displaying results <b>%{from}&nbsp;-&nbsp;%{to}</b> of <b>%{count}</b> in total"
     label_repofile: Repository
     label_repofile_plural: Repositories
+    label_per_page: "10 per page"

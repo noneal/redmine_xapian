@@ -21,6 +21,7 @@ module RedmineXapian
         @question = params[:q] || ""
         @question.strip!
         @all_words = params[:all_words] ? params[:all_words].present? : true
+        @per_page = params[:per_page] ? params[:per_page].present? : true
         @titles_only = params[:titles_only] ? params[:titles_only].present? : false
 
         @user_stem_lang=params[:user_stem_lang] ? params[:user_stem_lang] : Setting.plugin_redmine_xapian['stemming_lang']
@@ -103,7 +104,7 @@ module RedmineXapian
           @rresults = @rresults.sort {|a,b| b.event_datetime <=> a.event_datetime}
           current_page = params[:page]
           #per_page = params[:per_page] # could be configurable or fixed in your app
-          per_page = 10
+          per_page = @per_page ? 10 : 100
           @results = @rresults.paginate(:page => current_page, :per_page => per_page)
 	  Rails.logger.debug "DEBUG: results total: #{@rresults.size}"
 	  Rails.logger.debug "DEBUG result sum by tipe #{@results_by_type.values.sum}"
